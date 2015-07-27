@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "com.kaka.app.til"
+        minSdkVersion 17
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+}
+apply plugin: 'io.fabric'
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:22.2.0'
+    // Twitter API
+    compile('com.twitter.sdk.android:twitter-core:1.4.1@aar') {
+        transitive = true
+    }
+    // auto inject view
+    compile 'com.jakewharton:butterknife:7.0.1'
+    //OkHttp
+    compile 'com.squareup.okhttp:okhttp:2.2.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.2.0'
+    //Logger libs
+    compile 'com.github.tony19:logback-android-core:1.1.1-3'
+    compile 'com.github.tony19:logback-android-classic:1.1.1-3'
+    compile 'org.slf4j:slf4j-api:1.7.7'
+    //Database libs
+    compile 'com.j256.ormlite:ormlite-android:4.48'
+    compile 'com.tojc.ormlite.android:ormlite-content-provider-library:1.0.2@jar'
+    //Robospice
+    compile 'com.octo.android.robospice:robospice:1.4.14'
+    compile 'com.octo.android.robospice:robospice-retrofit:1.4.14'
+    compile 'com.octo.android.robospice:robospice-ormlite:1.4.14'
+    // Rounded imageView
+    compile 'com.pkmmte.view:circularimageview:1.1'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
+}
